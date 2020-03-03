@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5ad56f6-ae86-4ae4-9aab-d078ad3790e1" name="Default Changelist" comment="" />
+    <list default="true" id="b5ad56f6-ae86-4ae4-9aab-d078ad3790e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/org/craftedsw/tripservicekata/trip/TripServiceTest$NotLoggedInTripService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/craftedsw/tripservicekata/trip/TripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/craftedsw/tripservicekata/trip/TripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/craftedsw/tripservicekata/trip/TripServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/craftedsw/tripservicekata/trip/TripServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/craftedsw/tripservicekata/trip/TripService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/craftedsw/tripservicekata/trip/TripService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/craftedsw/tripservicekata/trip/TripServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/craftedsw/tripservicekata/trip/TripServiceTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +22,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1YcvFPrY5TVSXiVcevLst9CIDwo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,10 +34,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -36,7 +50,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TripServiceTest.shouldThrowException_whenUserIsNotLoggedIn">
     <configuration name="TripServiceTest.name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="trip-service-kata" />
       <extension name="coverage">
@@ -53,8 +67,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TripServiceTest.shouldThrowException_whenUserIsNotLoggedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="trip-service-kata" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.craftedsw.tripservicekata.trip.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.craftedsw.tripservicekata.trip" />
+      <option name="MAIN_CLASS_NAME" value="org.craftedsw.tripservicekata.trip.TripServiceTest" />
+      <option name="METHOD_NAME" value="shouldThrowException_whenUserIsNotLoggedIn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TripServiceTest.shouldThrowException_whenUserIsNotLoggedIn" />
         <item itemvalue="JUnit.TripServiceTest.name" />
       </list>
     </recent_temporary>
@@ -71,6 +102,7 @@
       <updated>1583254592319</updated>
       <workItem from="1583254594754" duration="52000" />
       <workItem from="1583254670558" duration="18000" />
+      <workItem from="1583254737855" duration="536000" />
     </task>
     <servers />
   </component>
@@ -78,6 +110,34 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1583255094792">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1583255094792" />
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1583255338986">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583255338986" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1583255123580">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583255123580" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1583255123578">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583255123578" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1583255123577">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583255123577" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1583255123579">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583255123579" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1583255065540">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1583255065540" />
     <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1583254595759">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -86,9 +146,13 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="461" y="184" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1440.900@0.0.1440.900" timestamp="1583254680257" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583254794300">
+    <state x="458" y="210" key="extract.method.dialog" timestamp="1583255054671">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1583254794300" />
+    <state x="458" y="210" key="extract.method.dialog/0.0.1440.900@0.0.1440.900" timestamp="1583255054671" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583255002405">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1583255002405" />
   </component>
 </project>
