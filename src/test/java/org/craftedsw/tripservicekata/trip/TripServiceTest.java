@@ -31,8 +31,10 @@ public class TripServiceTest {
 
     @Test
     void shouldReturnTrips_whenLoggedUserIsAFriend() {
-        TripService tripService = new FriendTripService();
+        User loggedUser = new User();
         User user = new User();
+        user.addFriend(loggedUser);
+        TripService tripService = new FriendTripService(loggedUser);
 
         List<Trip> trips = tripService.getTripsByUser(user);
         Assertions.assertFalse(trips.isEmpty());
@@ -46,9 +48,19 @@ public class TripServiceTest {
     }
 
     private static class LoggedUserSession implements IUserSession {
+
+        private User user = new User();
+
+        private LoggedUserSession(User user) {
+            this.user = user;
+        }
+
+        public LoggedUserSession() {
+        }
+
         @Override
         public User getLoggedUser() {
-            return new User();
+            return user;
         }
     }
 
@@ -58,24 +70,14 @@ public class TripServiceTest {
         }
 
         @Override
-        protected boolean isFriend() {
-            return false;
-        }
-
-        @Override
         protected List<Trip> getTrips(User user) {
             return new ArrayList<>();
         }
     }
 
     private static class FriendTripService extends TripService {
-        private FriendTripService() {
-            super(new LoggedUserSession());
-        }
-
-        @Override
-        protected boolean isFriend() {
-            return true;
+        private FriendTripService(User user) {
+            super(new LoggedUserSession(user));
         }
 
         @Override

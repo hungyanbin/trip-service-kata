@@ -18,7 +18,7 @@ public class TripService {
 	public List<Trip> getTripsByUser(User user) throws UserNotLoggedInException {
 		List<Trip> tripList = new ArrayList<Trip>();
 		User loggedUser = userSession.getLoggedUser();
-		boolean isFriend = isFriend();
+		boolean isFriend = isFriend(user, loggedUser);
 		if (loggedUser != null) {
 			for (User friend : user.getFriends()) {
 				if (friend.equals(loggedUser)) {
@@ -35,8 +35,8 @@ public class TripService {
 		}
 	}
 
-	protected boolean isFriend() {
-		return false;
+	private boolean isFriend(User user, User target) {
+		return user.getFriends().contains(target);
 	}
 
 	protected List<Trip> getTrips(User user) {
