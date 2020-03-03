@@ -1,6 +1,7 @@
 package org.craftedsw.tripservicekata.trip;
 
 import org.craftedsw.tripservicekata.exception.UserNotLoggedInException;
+import org.craftedsw.tripservicekata.user.IUserSession;
 import org.craftedsw.tripservicekata.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,18 @@ public class TripServiceTest {
         Assertions.assertFalse(trips.isEmpty());
     }
 
+    private static class FakeUserSession implements IUserSession {
+        @Override
+        public User getLoggedUser() {
+            return null;
+        }
+    }
+
     private static class NotLoggedInTripService extends TripService {
+        private NotLoggedInTripService() {
+            super(new FakeUserSession());
+        }
+
         @Override
         protected User getLoggedUser() {
             return null;
@@ -45,6 +57,10 @@ public class TripServiceTest {
     }
 
     private static class NotFriendTripService extends TripService {
+        private NotFriendTripService() {
+            super(new FakeUserSession());
+        }
+
         @Override
         protected boolean isFriend() {
             return false;
@@ -62,6 +78,10 @@ public class TripServiceTest {
     }
 
     private static class FriendTripService extends TripService {
+        private FriendTripService() {
+            super(new FakeUserSession());
+        }
+
         @Override
         protected boolean isFriend() {
             return true;

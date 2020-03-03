@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.craftedsw.tripservicekata.exception.UserNotLoggedInException;
+import org.craftedsw.tripservicekata.user.IUserSession;
 import org.craftedsw.tripservicekata.user.User;
 import org.craftedsw.tripservicekata.user.UserSession;
 
 public class TripService {
+
+	private IUserSession userSession;
+
+	public TripService(IUserSession userSession) {
+		this.userSession = userSession;
+	}
 
 	public List<Trip> getTripsByUser(User user) throws UserNotLoggedInException {
 		List<Trip> tripList = new ArrayList<Trip>();
@@ -40,7 +47,7 @@ public class TripService {
 	}
 
 	protected User getLoggedUser() {
-		return UserSession.getInstance().getLoggedUser();
+		return userSession.getLoggedUser();
 	}
 
 }
