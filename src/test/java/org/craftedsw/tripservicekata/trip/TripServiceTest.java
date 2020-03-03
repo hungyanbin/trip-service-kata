@@ -28,6 +28,15 @@ public class TripServiceTest {
         Assertions.assertTrue(trips.isEmpty());
     }
 
+    @Test
+    void shouldReturnTrips_whenLoggedUserIsAFriend() {
+        TripService tripService = new FriendTripService();
+        User user = new User();
+
+        List<Trip> trips = tripService.getTripsByUser(user);
+        Assertions.assertFalse(trips.isEmpty());
+    }
+
     private static class NotLoggedInTripService extends TripService {
         @Override
         protected User getLoggedUser() {
@@ -44,6 +53,25 @@ public class TripServiceTest {
         @Override
         protected List<Trip> getTrips(User user) {
             return new ArrayList<>();
+        }
+
+        @Override
+        protected User getLoggedUser() {
+            return new User();
+        }
+    }
+
+    private static class FriendTripService extends TripService {
+        @Override
+        protected boolean isFriend() {
+            return true;
+        }
+
+        @Override
+        protected List<Trip> getTrips(User user) {
+            ArrayList<Trip> trips = new ArrayList<>();
+            trips.add(new Trip());
+            return trips;
         }
 
         @Override
