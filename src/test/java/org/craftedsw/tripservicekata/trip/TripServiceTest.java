@@ -45,9 +45,16 @@ public class TripServiceTest {
         }
     }
 
+    private static class LoggedUserSession implements IUserSession {
+        @Override
+        public User getLoggedUser() {
+            return new User();
+        }
+    }
+
     private static class NotFriendTripService extends TripService {
         private NotFriendTripService() {
-            super(new NoLoggedUserSession());
+            super(new LoggedUserSession());
         }
 
         @Override
@@ -59,16 +66,11 @@ public class TripServiceTest {
         protected List<Trip> getTrips(User user) {
             return new ArrayList<>();
         }
-
-        @Override
-        protected User getLoggedUser() {
-            return new User();
-        }
     }
 
     private static class FriendTripService extends TripService {
         private FriendTripService() {
-            super(new NoLoggedUserSession());
+            super(new LoggedUserSession());
         }
 
         @Override
@@ -81,11 +83,6 @@ public class TripServiceTest {
             ArrayList<Trip> trips = new ArrayList<>();
             trips.add(new Trip());
             return trips;
-        }
-
-        @Override
-        protected User getLoggedUser() {
-            return new User();
         }
     }
 }
