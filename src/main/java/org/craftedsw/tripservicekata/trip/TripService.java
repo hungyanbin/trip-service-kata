@@ -29,7 +29,7 @@ public class TripService {
 				}
 			}
 			if (isFriend) {
-				tripList = getTrips(user);
+				tripList = tripRepository.getTrip(user);
 			}
 			return tripList;
 		} else {
@@ -41,7 +41,4 @@ public class TripService {
 		return user.getFriends().contains(target);
 	}
 
-	protected List<Trip> getTrips(User user) {
-		return tripRepository.getTrip(user);
-	}
 }

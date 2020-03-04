@@ -34,7 +34,10 @@ public class TripServiceTest {
         User loggedUser = new User();
         User user = new User();
         user.addFriend(loggedUser);
-        TripService tripService = new FriendTripService(loggedUser);
+        ArrayList<Trip> fakeTrips = new ArrayList<>();
+        fakeTrips.add(new Trip());
+
+        TripService tripService = new FriendTripService(loggedUser, fakeTrips);
 
         List<Trip> trips = tripService.getTripsByUser(user);
         Assertions.assertFalse(trips.isEmpty());
@@ -83,23 +86,11 @@ public class TripServiceTest {
         private NotFriendTripService() {
             super(new LoggedUserSession(), new FakeTripRepository());
         }
-
-        @Override
-        protected List<Trip> getTrips(User user) {
-            return new ArrayList<>();
-        }
     }
 
     private static class FriendTripService extends TripService {
-        private FriendTripService(User user) {
-            super(new LoggedUserSession(user), new FakeTripRepository());
-        }
-
-        @Override
-        protected List<Trip> getTrips(User user) {
-            ArrayList<Trip> trips = new ArrayList<>();
-            trips.add(new Trip());
-            return trips;
+        private FriendTripService(User user, List<Trip> trips) {
+            super(new LoggedUserSession(user), new FakeTripRepository(trips));
         }
     }
 }
