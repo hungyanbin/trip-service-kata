@@ -22,7 +22,11 @@ public class TripServiceTest {
 
     @Test
     void shouldNotReturnTrips_whenLoggedUserIsNotAFriend() {
-        TripService tripService = new NotFriendTripService();
+        User loggedUser = new User();
+        TripService tripService = new TripService(
+                new FakeUserSession(loggedUser),
+                new FakeTripRepository()
+        );
         User user = new User();
 
         List<Trip> trips = tripService.getTripsByUser(user);
@@ -37,7 +41,10 @@ public class TripServiceTest {
         ArrayList<Trip> fakeTrips = new ArrayList<>();
         fakeTrips.add(new Trip());
 
-        TripService tripService = new FriendTripService(loggedUser, fakeTrips);
+        TripService tripService = new TripService(
+                new FakeUserSession(loggedUser),
+                new FakeTripRepository(fakeTrips)
+        );
 
         List<Trip> trips = tripService.getTripsByUser(user);
         Assertions.assertFalse(trips.isEmpty());
@@ -66,31 +73,17 @@ public class TripServiceTest {
         }
     }
 
-    private static class LoggedUserSession implements IUserSession {
+    private static class FakeUserSession implements IUserSession {
 
-        private User user = new User();
+        private User user;
 
-        private LoggedUserSession(User user) {
+        private FakeUserSession(User user) {
             this.user = user;
         }
-
-        public LoggedUserSession() { }
 
         @Override
         public User getLoggedUser() {
             return user;
-        }
-    }
-
-    private static class NotFriendTripService extends TripService {
-        private NotFriendTripService() {
-            super(new LoggedUserSession(), new FakeTripRepository());
-        }
-    }
-
-    private static class FriendTripService extends TripService {
-        private FriendTripService(User user, List<Trip> trips) {
-            super(new LoggedUserSession(user), new FakeTripRepository(trips));
         }
     }
 }
