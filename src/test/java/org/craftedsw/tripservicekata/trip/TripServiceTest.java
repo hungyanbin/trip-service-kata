@@ -13,7 +13,7 @@ public class TripServiceTest {
 
     @Test
     void shouldThrowException_whenUserIsNotLoggedIn() {
-        TripService tripService = new TripService(new NoLoggedUserSession());
+        TripService tripService = new TripService(new NoLoggedUserSession(), new FakeTripRepository());
         User user = new User();
 
         Assertions.assertThrows(UserNotLoggedInException.class,
@@ -47,6 +47,22 @@ public class TripServiceTest {
         }
     }
 
+    private static class FakeTripRepository implements ITripRepository {
+
+        private List<Trip> trips;
+
+        private FakeTripRepository(List<Trip> trips) {
+            this.trips = trips;
+        }
+
+        public FakeTripRepository() { }
+
+        @Override
+        public List<Trip> getTrip(User user) {
+            return trips;
+        }
+    }
+
     private static class LoggedUserSession implements IUserSession {
 
         private User user = new User();
@@ -65,7 +81,7 @@ public class TripServiceTest {
 
     private static class NotFriendTripService extends TripService {
         private NotFriendTripService() {
-            super(new LoggedUserSession());
+            super(new LoggedUserSession(), new FakeTripRepository());
         }
 
         @Override
@@ -76,7 +92,7 @@ public class TripServiceTest {
 
     private static class FriendTripService extends TripService {
         private FriendTripService(User user) {
-            super(new LoggedUserSession(user));
+            super(new LoggedUserSession(user), new FakeTripRepository());
         }
 
         @Override

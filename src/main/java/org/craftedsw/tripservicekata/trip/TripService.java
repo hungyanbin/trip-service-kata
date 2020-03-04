@@ -10,9 +10,11 @@ import org.craftedsw.tripservicekata.user.User;
 public class TripService {
 
 	private IUserSession userSession;
+	private ITripRepository tripRepository;
 
-	public TripService(IUserSession userSession) {
+	public TripService(IUserSession userSession, ITripRepository tripRepository) {
 		this.userSession = userSession;
+		this.tripRepository = tripRepository;
 	}
 
 	public List<Trip> getTripsByUser(User user) throws UserNotLoggedInException {
@@ -40,7 +42,6 @@ public class TripService {
 	}
 
 	protected List<Trip> getTrips(User user) {
-		TripRepository tripRepository = new TripRepository();
 		return tripRepository.getTrip(user);
 	}
 }
