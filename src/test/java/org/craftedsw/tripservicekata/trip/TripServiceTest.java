@@ -55,8 +55,7 @@ public class TripServiceTest {
             this.user = user;
         }
 
-        public LoggedUserSession() {
-        }
+        public LoggedUserSession() { }
 
         @Override
         public User getLoggedUser() {

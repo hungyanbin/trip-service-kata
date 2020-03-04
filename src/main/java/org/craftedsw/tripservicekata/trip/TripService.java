@@ -40,8 +40,7 @@ public class TripService {
 	}
 
 	protected List<Trip> getTrips(User user) {
-		List<Trip> tripList;
-		tripList = TripDAO.findTripsByUser(user);
-		return tripList;
+		TripRepository tripRepository = new TripRepository();
+		return tripRepository.getTrip(user);
 	}
 }
